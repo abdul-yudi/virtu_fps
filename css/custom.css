@@ -98,6 +98,7 @@ body {
   position: fixed;
   font-size: 20px;
   left: 50%;
+  width: max-content;
   display: none;
   transform: translateX(-50%);
 }
