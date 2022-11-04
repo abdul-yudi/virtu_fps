@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+  <title>Virtu First Person Shooter</title>
+  <!-- Bootstrap + Plugin CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/custom.css">
+
+  <!-- AFRAME + Plugin -->
+  <script src="./js/aframe.min.js"></script>
+  <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
+  <script src="./js/aframe-physics-system.min.js"></script>
+  <script src="./js/aframe-fps-look-controls-component.min.js"></script>
+  <script src="./js/components.js"></script>
+</head>
+<body style="overflow-x: hidden;">
+
+  <!-- AFRAME content -->
+  <div class="position-relative vh-100 vw-100" style="user-select: none; -webkit-user-select: none;">
+    <a-scene embedded loading-screen="enabled: false;" physics="driver: ammo; debug: false;" device-orientation-permission-ui="enabled: true" vr-mode-ui="enabled: false">
+      <!-- AFRAME assets -->
+			<a-assets>
+        <img id="ground" src="images/ground.jpg">
+        <img id="sky" src="images/sky.jpg">
+        <a-mixin
+          id="bullet"
+          material="color: white;"
+          position="1.4 0.9 0"
+          geometry="primitive: sphere; radius: 0.075"
+          ammo-body="type: static; emitCollisionEvents: true;"
+          ammo-shape="type: sphere"
+          projectile>
+        </a-mixin>
+			</a-assets>
+
+      <!-- AFRAME camera -->
+      <a-camera
+        fps-look-controls
+        spawner="mixin: bullet;"
+        id="camera"
+        position="0 3 0"
+        cursor="fuse: false;"
+        look-controls="touchEnabled: false;" 
+        wasd-controls="enabled: false;"
+        raycaster="far: 1000;">
+        <!-- Object primitive gun -->
+        <a-entity id="gun" position="-0.25 0.05 -3.54" rotation="0 -90 0" scale="0.3 0.5 0.5">
+          <a-box color="white" id="laras" scale="1 1 7" position="0 0 0"></a-box>
+          <a-box color="white" id="bidik-laras1" scale="0.25 0.25 0.25" position="-0.380 0.580 -3.343"></a-box>
+          <a-box color="white" id="bidik-laras2" scale="0.25 0.25 0.25" position="0.380 0.580 -3.343"></a-box>
+          <a-box color="white" id="mouth-gun" scale="0.5 0.5 0.5" position="0 0 -3.5"></a-box>
+          <a-box color="white" id="ammogrip" scale="0.8 3 0.8" position="0 -1 -0.6" rotation="26 0 0"></a-box>
+          <a-box color="white" id="handgrip" scale="0.8 2 0.8" position="0 -1 2.262"></a-box>
+        </a-entity>
+      </a-camera>
+
+      <!-- Object primitive floor -->
+      <a-plane ground-floor id="ground_floor" src="#ground" height="100" width="100" rotation="-90 0 0" repeat="80 80" ammo-body="type: static; emitCollisionEvents: true;" ammo-shape="type: box"></a-plane>
+      
+      <!-- Object primitive sky -->
+      <a-sky src="#sky"></a-sky>
+
+    </a-scene>
+
+    <!-- Info page on scroll -->
+    <div class="info-page info-page-1">Side View</div>
+    <div class="info-page info-page-2">Muzzle View</div>
+    <div class="info-page info-page-3">Magazine View</div>
+    <div class="info-page info-page-4">Iron Sight View</div>
+
+    <div class="board score">
+      Score <strong>0</strong>
+    </div>
+
+    <div class="board timer">
+      Timer <strong>0</strong>
+    </div>
+
+    <div class="info info-enemy">New Target Has coming!</div>
+
+    <div class="info info-good">Good!</div>
+
+    <div class="notes">*Press <strong>Escape</strong> on keyboard to show pointer</div>
+
+  <!-- Modals -->
+  <div id="welcome_screen" class="modal fade">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-body position-relative text-center">
+          <h3>Every Target will disappear every 5 seconds<br>You must shoot on targets and reach score 1000 to win!
+            <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal">
+              LET'S PLAY
+            </a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="win_screen" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content" style="background-image: url(./assets/images/pita.png); background-size: cover;">
+        <div class="modal-body position-relative">
+          <h3>You Win!
+            <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal">
+              PLAY AGAIN
+            </a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="lose_screen" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body position-relative">
+          <h3>You Lose!
+            <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal" data-bs-dismiss="modal">
+              RETRY
+            </a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Other Plugins -->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <!-- Javascript -->
+  <script src="./js/main.js"></script>
+  <script>
+  </script>
+</body>
+</html>
