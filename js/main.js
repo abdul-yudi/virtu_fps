@@ -28,6 +28,7 @@ window.addEventListener('load', function () {
   var canvas = document.querySelector('.a-canvas');
   var infoGood = document.querySelector('.info-good');
   var gun = document.getElementById('gun');
+  var camera = document.getElementById('#camera');
 
   // Back to default scroll
   window.scrollTo(0, 0);
@@ -312,4 +313,9 @@ window.addEventListener('load', function () {
     canvas.style.pointerEvents = 'unset';
     initGame();
   });
+
+  // Remove fps mouse on mobile
+  if(window.navigator.maxTouchPoints > 0){
+    camera.removeAttribute('fps-look-controls');
+  }
 });
