@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
   var canvas = document.querySelector('.a-canvas');
   var infoGood = document.querySelector('.info-good');
   var gun = document.getElementById('gun');
-  var camera = document.getElementById('#camera');
+  var camera = document.getElementById('camera');
 
   // Back to default scroll
   window.scrollTo(0, 0);
