@@ -1,12 +1,11 @@
-
 window.addEventListener('load', function () {
   var score = 0;
   var timerDefault = 30;
   var timer = timerDefault;
   var timerInterval;
   var liveEnemy = 2;
-  var targetDisappear = 5000;
-  var winScore = 500;
+  var targetDisappear = 3000;
+  var winScore = 1000;
   var targetTimeout;
   var section1 = window.innerHeight;
   var section2 = window.innerHeight * 2;
