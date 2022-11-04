@@ -181,7 +181,11 @@ window.addEventListener('load', function () {
       }
 
       if(liveEnemy === 0){
-        generateTarget();
+        clearTimeout(timeOutGenerate);
+        var timeOutGenerate = setTimeout(function(){
+          generateTarget();
+        }, 300);
+        
         infoGood.style.display = 'block';
         var timeOutInfoGood = setTimeout(() => {
           infoGood.style.display = 'none';

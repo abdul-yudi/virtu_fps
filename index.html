@@ -16,7 +16,7 @@
   <script src="./js/aframe-fps-look-controls-component.min.js"></script>
   <script src="./js/components.js"></script>
 </head>
-<body style="overflow-x: hidden;">
+<body>
 
   <!-- AFRAME content -->
   <div class="position-relative vh-100 vw-100" style="user-select: none; -webkit-user-select: none;">
@@ -85,51 +85,51 @@
 
     <div class="notes">*Press <strong>Escape</strong> on keyboard to show pointer</div>
 
-  <!-- Modals -->
-  <div id="welcome_screen" class="modal fade">
-    <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content">
-        <div class="modal-body position-relative text-center">
-          <h3>Every Target will disappear every 5 seconds<br>You must shoot on targets and reach score 1000 to win!
-            <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal">
-              LET'S PLAY
-            </a>
-          </h3>
+    <!-- Modals -->
+    <div id="welcome_screen" class="modal fade">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-body position-relative text-center">
+            <h3>Every Target will disappear every 5 seconds<br>You must shoot on targets and reach score 1000 to win!
+              <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal">
+                LET'S PLAY
+              </a>
+            </h3>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modals -->
-  <div id="win_screen" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content" style="background-image: url(./assets/images/pita.png); background-size: cover;">
-        <div class="modal-body position-relative">
-          <h3>You Win!
-            <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal">
-              PLAY AGAIN
-            </a>
-          </h3>
+    <!-- Modals -->
+    <div id="win_screen" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background-image: url(./assets/images/pita.png); background-size: cover;">
+          <div class="modal-body position-relative">
+            <h3>You Win!
+              <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal">
+                PLAY AGAIN
+              </a>
+            </h3>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modals -->
-  <div id="lose_screen" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body position-relative">
-          <h3>You Lose!
-            <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal" data-bs-dismiss="modal">
-              RETRY
-            </a>
-          </h3>
+    <!-- Modals -->
+    <div id="lose_screen" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body position-relative">
+            <h3>You Lose!
+              <a href="#" class="play-button btn btn-success btn-lg clear-both d-table mt-4" data-bs-dismiss="modal" data-bs-dismiss="modal">
+                RETRY
+              </a>
+            </h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
   <!-- Other Plugins -->
   <script src="./js/bootstrap.bundle.min.js"></script>
 
