@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
   var targetDisappear = 3000;
   var winScore = 1000;
   var targetTimeout;
-  var section1 = window.innerHeight / 2;
+  var section1 = window.innerHeight;
   var section2 = window.innerHeight * 2;
   var section3 = window.innerHeight * 3;
   var section4 = window.innerHeight * 4;
@@ -53,6 +53,7 @@ window.addEventListener('load', function () {
     liveEnemy = 2;
     
     if(score === winScore) return;
+    if(timer === 0) return;
     if(quitGame) return;
 
     var itemsX = getRandomInt(-10, 10);
@@ -137,10 +138,12 @@ window.addEventListener('load', function () {
   function win(){
     clearInterval(timerInterval);
     popUpWin.show();
+    removeAllTarget();
   }
   
   // Time out
   function timeOut(){
+    removeAllTarget();
     popUpLose.show();
   }
 
@@ -217,7 +220,12 @@ window.addEventListener('load', function () {
   // Function quit
   function quit(){
     quitGame = true;
+    clearInterval(timerInterval);
     document.body.style.overflow = 'auto';
+    document.querySelectorAll('.board').forEach(function(el){
+      el.style.display = 'block';
+      btnQuit.style.display = 'block';
+    });
     scrolled = false;
   }
 
@@ -240,9 +248,9 @@ window.addEventListener('load', function () {
     }
 
     // page 2
-    if(document.documentElement.scrollTop >= section1 && document.documentElement.scrollTop < section2){
-      gun.setAttribute('rotation', scrollAnimate({'x': 0, 'y': -90, 'z': 0}, {'x': 6, 'y': -155, 'z': 0}, section2));
-      gun.setAttribute('position', scrollAnimate({'x': -0.25, 'y': 0.05, 'z': -3.54}, {'x': -1.2, 'y': -0.2, 'z': -2}, section2));
+    if(document.documentElement.scrollTop > section1 && document.documentElement.scrollTop < section2){
+      gun.setAttribute('rotation', scrollAnimate({'x': 0, 'y': -90, 'z': 0}, {'x': 6, 'y': -148, 'z': 0}, section2));
+      gun.setAttribute('position', scrollAnimate({'x': -0.25, 'y': 0.05, 'z': -3.54}, {'x': -0.9, 'y': -0.2, 'z': -2}, section2));
 
       document.querySelector('.info-page-1').style.display = 'none';
       document.querySelector('.info-page-2').style.display = 'block';
@@ -255,9 +263,9 @@ window.addEventListener('load', function () {
     }
 
     // page 3
-    if(document.documentElement.scrollTop >= section2 && document.documentElement.scrollTop < section3){
-      gun.setAttribute('rotation', scrollAnimate({'x': 6, 'y': -155, 'z': 0}, {'x': 0, 'y': -140, 'z': 0}, section3));
-      gun.setAttribute('position', scrollAnimate({'x': -1.2, 'y': -0.2, 'z': -2}, {'x': 0, 'y': 1, 'z': -1}, section3));
+    if(document.documentElement.scrollTop > section2 && document.documentElement.scrollTop < section3){
+      gun.setAttribute('rotation', scrollAnimate({'x': 6, 'y': -148, 'z': 0}, {'x': 0, 'y': -140, 'z': 0}, section3));
+      gun.setAttribute('position', scrollAnimate({'x': -0.9, 'y': -0.2, 'z': -2}, {'x': 0, 'y': 1, 'z': -1}, section3));
 
       document.querySelector('.info-page-1').style.display = 'none';
       document.querySelector('.info-page-2').style.display = 'none';
@@ -270,7 +278,7 @@ window.addEventListener('load', function () {
     }
 
     // page 4
-    if(document.documentElement.scrollTop >= section3 && document.documentElement.scrollTop < section4){
+    if(document.documentElement.scrollTop > section3 && document.documentElement.scrollTop < section4){
       gun.setAttribute('rotation', scrollAnimate({'x': 0, 'y': -140, 'z': 0}, {'x': 2.3, 'y': -360, 'z': 0}, section4));
       gun.setAttribute('position', scrollAnimate({'x': 0, 'y': 1, 'z': 0}, {'x': 0, 'y': -0.8, 'z': 0}, section4));
 
@@ -285,7 +293,7 @@ window.addEventListener('load', function () {
     }
 
     // play
-    if(document.documentElement.scrollTop >= section4){
+    if(document.documentElement.scrollTop > section4){
       gun.setAttribute('rotation', scrollAnimate({'x': 2.3, 'y': -360, 'z': 0}, {'x': 2.3, 'y': -360, 'z': 0}, section5));
       gun.setAttribute('position', scrollAnimate({'x': 0, 'y': -0.8, 'z': 0}, {'x': 0, 'y': -0.8, 'z': 0}, section5));
 
