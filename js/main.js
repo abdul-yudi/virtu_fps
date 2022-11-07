@@ -27,6 +27,7 @@ window.addEventListener('load', function () {
   var scene = document.querySelector('a-scene');
   var canvas = document.querySelector('.a-canvas');
   var infoGood = document.querySelector('.info-good');
+  var btnQuit = document.querySelector('.quit');
   var gun = document.getElementById('gun');
   var camera = document.getElementById('camera');
 
@@ -199,6 +200,7 @@ window.addEventListener('load', function () {
       }
     }
   }
+
   // Function animate scroll
   function scrollAnimate({'x': fromX, 'y': fromY, 'z': fromZ}, {'x': toX, 'y': toY, 'z': toZ}, section) {
       section;
@@ -211,6 +213,12 @@ window.addEventListener('load', function () {
         'z': fromZ + document.documentElement.scrollTop / section * diffZ
       }
   };
+
+  // Function quit
+  function quit(){
+    document.body.style.overflow = 'auto';
+    scrolled = false;
+  }
 
   // Animation gun
   function animationGun(){
@@ -225,6 +233,7 @@ window.addEventListener('load', function () {
       document.querySelector('.info-page-3').style.display = 'none';
       document.querySelector('.info-page-4').style.display = 'none';
       document.body.style.overflow.y = 'auto';
+      btnQuit.style.display = 'none';
 
       popUpStart.hide();
     }
@@ -239,6 +248,7 @@ window.addEventListener('load', function () {
       document.querySelector('.info-page-3').style.display = 'none';
       document.querySelector('.info-page-4').style.display = 'none';
       document.body.style.overflow.y = 'auto';
+      btnQuit.style.display = 'none';
       
       popUpStart.hide();
     }
@@ -253,6 +263,7 @@ window.addEventListener('load', function () {
       document.querySelector('.info-page-3').style.display = 'block';
       document.querySelector('.info-page-4').style.display = 'none';
       document.body.style.overflow.y = 'auto';
+      btnQuit.style.display = 'none';
 
       popUpStart.hide();
     }
@@ -268,6 +279,7 @@ window.addEventListener('load', function () {
       document.querySelector('.info-page-4').style.display = 'block';
 
       document.body.style.overflow.y = 'auto';
+      btnQuit.style.display = 'none';
       popUpStart.hide();
     }
 
@@ -284,6 +296,7 @@ window.addEventListener('load', function () {
         document.body.style.overflow = 'hidden';
         document.querySelectorAll('.board').forEach(function(el){
           el.style.display = 'block';
+          btnQuit.style.display = 'block';
         });
         popUpStart.show();
       }
@@ -314,6 +327,11 @@ window.addEventListener('load', function () {
     initGame();
   });
 
+  // Quit
+  btnQuit.addEventListener('click', function(){
+    quit();
+  });
+  
   // Remove fps mouse on mobile
   if(window.navigator.maxTouchPoints > 0){
     camera.removeAttribute('fps-look-controls');

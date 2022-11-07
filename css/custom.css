@@ -62,9 +62,17 @@ body {
   padding: 6px 18px;
 }
 
+.quit{
+  position: fixed;
+  top: 20px;
+  left: 15px;
+
+}
+
 .score{
   top: 20px;
-  left: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #fff;
 }
 
@@ -74,7 +82,7 @@ body {
 
 .timer{
   top: 20px;
-  right: 20px;
+  right: 15px;
   color: #fff;
   background-color: #333;
 }
