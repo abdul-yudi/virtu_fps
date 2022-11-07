@@ -223,9 +223,9 @@ window.addEventListener('load', function () {
     clearInterval(timerInterval);
     document.body.style.overflow = 'auto';
     document.querySelectorAll('.board').forEach(function(el){
-      el.style.display = 'block';
-      btnQuit.style.display = 'block';
+      el.style.display = 'none';
     });
+    btnQuit.style.display = 'none';
     scrolled = false;
   }
 
@@ -248,7 +248,8 @@ window.addEventListener('load', function () {
     }
 
     // page 2
-    if(document.documentElement.scrollTop > section1 && document.documentElement.scrollTop < section2){
+    if(document.documentElement.scrollTop >= section1 && document.documentElement.scrollTop < section2){
+      scrolled = true;
       gun.setAttribute('rotation', scrollAnimate({'x': 0, 'y': -90, 'z': 0}, {'x': 6, 'y': -148, 'z': 0}, section2));
       gun.setAttribute('position', scrollAnimate({'x': -0.25, 'y': 0.05, 'z': -3.54}, {'x': -0.9, 'y': -0.2, 'z': -2}, section2));
 
@@ -263,7 +264,8 @@ window.addEventListener('load', function () {
     }
 
     // page 3
-    if(document.documentElement.scrollTop > section2 && document.documentElement.scrollTop < section3){
+    if(document.documentElement.scrollTop >= section2 && document.documentElement.scrollTop < section3){
+      scrolled = true;
       gun.setAttribute('rotation', scrollAnimate({'x': 6, 'y': -148, 'z': 0}, {'x': 0, 'y': -140, 'z': 0}, section3));
       gun.setAttribute('position', scrollAnimate({'x': -0.9, 'y': -0.2, 'z': -2}, {'x': 0, 'y': 1, 'z': -1}, section3));
 
@@ -278,7 +280,8 @@ window.addEventListener('load', function () {
     }
 
     // page 4
-    if(document.documentElement.scrollTop > section3 && document.documentElement.scrollTop < section4){
+    if(document.documentElement.scrollTop >= section3 && document.documentElement.scrollTop < section4){
+      scrolled = true;
       gun.setAttribute('rotation', scrollAnimate({'x': 0, 'y': -140, 'z': 0}, {'x': 2.3, 'y': -360, 'z': 0}, section4));
       gun.setAttribute('position', scrollAnimate({'x': 0, 'y': 1, 'z': 0}, {'x': 0, 'y': -0.8, 'z': 0}, section4));
 
@@ -293,7 +296,7 @@ window.addEventListener('load', function () {
     }
 
     // play
-    if(document.documentElement.scrollTop > section4){
+    if(document.documentElement.scrollTop >= section4){
       gun.setAttribute('rotation', scrollAnimate({'x': 2.3, 'y': -360, 'z': 0}, {'x': 2.3, 'y': -360, 'z': 0}, section5));
       gun.setAttribute('position', scrollAnimate({'x': 0, 'y': -0.8, 'z': 0}, {'x': 0, 'y': -0.8, 'z': 0}, section5));
 
