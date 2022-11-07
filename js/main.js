@@ -13,6 +13,7 @@ window.addEventListener('load', function () {
   var section4 = window.innerHeight * 4;
   var section5 = window.innerHeight * 5;
   var scrolled = false;
+  var quitGame = false;
 
   // Dom
   var timerEl = document.querySelector('.timer strong');
@@ -52,6 +53,7 @@ window.addEventListener('load', function () {
     liveEnemy = 2;
     
     if(score === winScore) return;
+    if(quitGame) return;
 
     var itemsX = getRandomInt(-10, 10);
     var itemsY = getRandomInt(1, 7);
@@ -216,6 +218,7 @@ window.addEventListener('load', function () {
 
   // Function quit
   function quit(){
+    quitGame = true;
     document.body.style.overflow = 'auto';
     scrolled = false;
   }
