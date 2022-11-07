@@ -219,13 +219,13 @@ window.addEventListener('load', function () {
 
   // Function quit
   function quit(){
-    quitGame = true;
-    clearInterval(timerInterval);
-    document.body.style.overflow = 'auto';
-    canvas.style.pointerEvents = 'unset';
     document.querySelectorAll('.board').forEach(function(el){
       el.style.display = 'none';
     });
+    quitGame = true;
+    clearInterval(timerInterval);
+    document.body.style.overflow.y = 'auto';
+    canvas.style.pointerEvents = 'unset';
     btnQuit.style.display = 'none';
     scrolled = false;
   }
