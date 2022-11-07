@@ -336,6 +336,7 @@ window.addEventListener('load', function () {
 
   // Start popup hide
   popUpStartEl.addEventListener('hidden.bs.modal', function(){
+    quitGame = false;
     canvas.style.pointerEvents = 'unset';
     initGame();
   });
