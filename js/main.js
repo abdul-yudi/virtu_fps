@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
   var targetDisappear = 3000;
   var winScore = 1000;
   var targetTimeout;
-  var section1 = window.innerHeight;
+  var section1 = window.innerHeight / 2;
   var section2 = window.innerHeight * 2;
   var section3 = window.innerHeight * 3;
   var section4 = window.innerHeight * 4;
@@ -222,6 +222,7 @@ window.addEventListener('load', function () {
     quitGame = true;
     clearInterval(timerInterval);
     document.body.style.overflow = 'auto';
+    canvas.style.pointerEvents = 'unset';
     document.querySelectorAll('.board').forEach(function(el){
       el.style.display = 'none';
     });
